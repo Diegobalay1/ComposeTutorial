@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.diego.kotlin.composetutorial.ui.theme.ComposeTutorialTheme
 import androidx.compose.foundation.border
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,11 +51,16 @@ fun MessageCard(msg: Message) {
         Column {
             Text(
                 text = msg.author,
-                color = MaterialTheme.colors.secondaryVariant
+                color = MaterialTheme.colors.secondaryVariant,
+                style = MaterialTheme.typography.subtitle2
             )
             // Add a vertical space between the author and message texts
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = msg.body)
+
+            Text(
+                text = msg.body,
+                style = MaterialTheme.typography.body2
+            )
         }
     }
 }
