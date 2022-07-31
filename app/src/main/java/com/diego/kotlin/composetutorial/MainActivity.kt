@@ -17,6 +17,7 @@ import com.diego.kotlin.composetutorial.ui.theme.ComposeTutorialTheme
 import androidx.compose.foundation.border
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import android.content.res.Configuration
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +69,12 @@ fun MessageCard(msg: Message) {
     }
 }
 
-@Preview
+@Preview(name = "Light Mode")
+@Preview(
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showBackground = true,
+    name = "Dark Mode"
+)
 @Composable
 fun PreviewMessageCard() {
     ComposeTutorialTheme {
