@@ -18,13 +18,16 @@ import androidx.compose.foundation.border
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import android.content.res.Configuration
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeTutorialTheme {
-                MessageCard(Message("Android", "Jetpack Compose"))
+                //MessageCard(Message("Android", "Jetpack Compose"))
+                Conversation(SampleData.conversationSample)
             }
         }
     }
@@ -83,4 +86,50 @@ fun PreviewMessageCard() {
         )
     }
 }
+
+@Composable
+fun Conversation(messages: List<Message>) {
+    LazyColumn {
+        items(messages) { message ->
+            MessageCard(msg = message)
+        }
+    }
+}
+
+@Preview
+@Composable
+fun PreviewConversation() {
+    ComposeTutorialTheme {
+        Conversation(SampleData.conversationSample)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
